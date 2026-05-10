@@ -1,0 +1,19 @@
+    Testing accounts (seeded by backend/seed.js)
+
+    Admin (bharath):
+    - email: admin@bharath.com
+    - password: Admin@123
+
+    CEO (bharath):
+    - email: ceo@bharath.com
+    - password: Admin@123
+
+    Manager (bharath):
+    - email: manager@bharath.com
+    - password: Admin@123
+
+    Worker (bharath):
+    - email: worker@bharath.com
+    - password: Admin@123
+
+
