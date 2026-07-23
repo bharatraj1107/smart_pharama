@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const auditLogSchema = new mongoose.Schema({
   action: {
     type: String,
-    enum: ["create", "edit", "delete", "start", "complete"],
+    enum: ["create", "edit", "delete", "start", "complete", "consume", "swap"],
     required: true
   },
   itemType: {
@@ -14,6 +14,7 @@ const auditLogSchema = new mongoose.Schema({
   company: String,
   itemId: String,
   barcode: String,
+  qrPayload: String,
   changedBy: String,
   changedByRole: String,
   before: Object,

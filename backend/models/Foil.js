@@ -9,6 +9,7 @@ const foilSchema = new mongoose.Schema({
   type: { type: String, required: true },
   size: String,
   weight: Number,
+  remainingWeight: Number,
   // QR payload stores all human-readable details so workers can scan and see info.
   // Example: qr:<company>|<type>|<size>|<weightKg>|<version>|<serial>
   qrPayload: { type: String, required: true },
@@ -22,4 +23,3 @@ const foilSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model("Foil", foilSchema);
-

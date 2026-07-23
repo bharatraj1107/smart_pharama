@@ -12,6 +12,7 @@ const cylinderSchema = new mongoose.Schema({
   colors: Number,
   manufacturer: String,
   size_inches: Number,
+  manufacture_date: Date,
   barcode: String
 });
 

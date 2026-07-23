@@ -7,6 +7,12 @@ const taskSchema = new mongoose.Schema({
   foil_type: String,
   size: String,
   required_kg: Number,
+  colourCount: {
+    type: Number,
+    min: 1,
+    max: 8,
+    default: 1
+  },
   
   
   // Original fields
@@ -15,6 +21,28 @@ const taskSchema = new mongoose.Schema({
 
   // Assigned foil at task creation / validation
   assigned_foil_qrPayload: String,
+  foilUsage: [{
+    foilId: { type: mongoose.Schema.Types.ObjectId, ref: "Foil" },
+    foilQrPayload: String,
+    colourNumber: Number,
+    startWeight: Number,
+    usedWeight: { type: Number, default: 0 },
+    remainingWeight: Number,
+    isSwap: { type: Boolean, default: false },
+    swappedFromFoilId: { type: mongoose.Schema.Types.ObjectId, ref: "Foil" },
+    scannedAt: { type: Date, default: Date.now },
+    completedAt: Date,
+    workerName: String,
+    notes: String
+  }],
+  foilSwapEvents: [{
+    colourNumber: Number,
+    oldFoilId: { type: mongoose.Schema.Types.ObjectId, ref: "Foil" },
+    newFoilId: { type: mongoose.Schema.Types.ObjectId, ref: "Foil" },
+    reason: String,
+    workerName: String,
+    createdAt: { type: Date, default: Date.now }
+  }],
 
 
   cylinder_barcode: String,
@@ -29,6 +57,7 @@ const taskSchema = new mongoose.Schema({
   used_kg: Number,
   waste_kg: Number,
   remaining_kg: Number,
+  waste_image_path: String,
   
   status: {
     type: String,

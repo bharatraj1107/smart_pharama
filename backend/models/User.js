@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
+  employeeNo: { type: String, unique: true, sparse: true },
   name: String,
   email: { type: String, unique: true },
   password: String,
   role: String, // ceo, admin, manager, worker
   company: String, // bharath, shree_ganaapathy, vel
+  department: { type: String, default: "" },
+  shiftTiming: { type: String, default: "" },
   phone: { type: String, default: "" },
   dob: { type: String, default: "" },         // YYYY-MM-DD
   joiningDate: { type: String, default: "" },  // YYYY-MM-DD
